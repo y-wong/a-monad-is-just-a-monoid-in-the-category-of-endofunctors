@@ -5,7 +5,7 @@ const monadLaws = require('./laws/monad');
 const applyLaws = require('./laws/apply');
 const applicativeLaws = require('./laws/applicative');
 const { liftA2 } = require('../src/utils');
-const equals = require('./laws/equals');
+const equals = require('./equals');
 
 describe('Maybe', () => {
   functorLaws(Maybe);
@@ -17,9 +17,18 @@ describe('Maybe', () => {
   it('works with liftA2', () => {
     const add = (x, y) => x + y;
     const mAdd = liftA2(add);
-    equals(mAdd(Maybe(1), Maybe(2)), Maybe(3));
-    equals(mAdd(Maybe(1), Nothing), Nothing);
-    equals(mAdd(Nothing, Maybe(1)), Nothing);
+    equals(
+      mAdd(Maybe(1), Maybe(2)),
+      Maybe(3)
+    );
+    equals(
+      mAdd(Maybe(1), Nothing),
+      Nothing
+    );
+    equals(
+      mAdd(Nothing, Maybe(1)),
+      Nothing
+    );
   });
 
   describe('Nothing', () => {

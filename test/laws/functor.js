@@ -1,8 +1,8 @@
 const { id, compose } = require('../../src/utils');
-const equals = require('./equals');
+const equals = require('../equals');
 
 module.exports = M => {
-  const x = 1;
+  const x = 2;
   const f = x => x + 1;
   const g = x => x * 2;
 
@@ -15,12 +15,7 @@ module.exports = M => {
       const m = M(x);
       equals(
         m.map(f).map(g),
-        m.map(
-          compose(
-            g,
-            f
-          )
-        )
+        m.map(compose(g, f))
       );
     });
   });
