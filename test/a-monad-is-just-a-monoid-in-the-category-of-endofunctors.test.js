@@ -15,7 +15,11 @@ const test = (description, M) => {
     it('follows identity laws', () => {
       equals(
         Monoid.empty.concat(F).valueOf()(x),
-        F.concat(Monoid.empty).valueOf()(x)
+        F.valueOf()(x)
+      );//M(4)
+      equals(
+        F.concat(Monoid.empty).valueOf()(x),
+        F.valueOf()(x)
       );//M(4)
     });
     it('follows associativity law', () => {
