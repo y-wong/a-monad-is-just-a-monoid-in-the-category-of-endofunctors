@@ -5,7 +5,7 @@ const Identity = x => ({
   fold: f => f(x),
   constructor: Identity,
   valueOf: () => x,
-  toString: () => `Identity <${String(x)}>`
+  toString: () => `Identity(${String(x)})`
 });
 
 Identity.of = Identity;

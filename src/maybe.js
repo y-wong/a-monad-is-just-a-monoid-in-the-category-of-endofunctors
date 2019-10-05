@@ -12,7 +12,7 @@ const Just = x => ({
   ap: mf => mf.map(f => f(x)),
   valueOf: () => x,
   constructor: Just,
-  toString: () => `Right <${String(x)}>`
+  toString: () => `Right(${String(x)})`
 });
 
 const Maybe = x => (x === null || x === undefined ? Nothing : Just(x));

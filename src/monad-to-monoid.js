@@ -9,7 +9,7 @@ const MonadToMonoid = M => {
         )
       ),
     valueOf: () => F,
-    toString: () => 'Monoind<' + String(F) + '>'
+    toString: () => `Monoind(${String(F)})`
   });
   Monoid.empty = Monoid(M);
   return Monoid;

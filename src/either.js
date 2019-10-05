@@ -4,7 +4,7 @@ const Left = x => ({
   ap: () => Left(x),
   constructor: Left,
   valueOf: () => x,
-  toString: () => `Left <${String(x)}>`
+  toString: () => `Left(${String(x)})`
 });
 
 const Right = x => ({
@@ -13,7 +13,7 @@ const Right = x => ({
   ap: mf => mf.map(f => f(x)),
   constructor: Right,
   valueOf: () => x,
-  toString: () => `Right <${String(x)}>`
+  toString: () => `Right(${String(x)})`
 });
 
 const Either = x => Right(x);
