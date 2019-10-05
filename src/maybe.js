@@ -1,23 +1,22 @@
-const fantasylandWrapper = require('./fantasyland-wrapper');
+const Nothing = {
+  map: () => Nothing,
+  chain: () => Nothing,
+  ap: () => Nothing,
+  valueOf: () => null,
+  toString: () => `Nothing`
+};
 
-const Nothing = fantasylandWrapper((x) => ({
-    map: f => Nothing(x),
-    chain: f => Nothing(x),
-    ap: mf => Nothing(x),
-    valueOf: () => x,
-    equals: mb => x === mb.valueOf(),
-    toString: () => `Left <${x}>`
-}));
+const Just = x => ({
+  map: f => Just(f(x)),
+  chain: f => f(x),
+  ap: mf => mf.map(f => f(x)),
+  valueOf: () => x,
+  constructor: Just,
+  toString: () => `Right <${String(x)}>`
+});
 
-const Just = fantasylandWrapper((x) => ({
-    map: f => Just(f(x)),
-    chain: f => f(x),
-    ap: mf => mf.map(f => f(x)),
-    valueOf: () => x,
-    equals: mb => x === mb.valueOf(),
-    toString: () => `Right <${x}>`
-}));
+const Maybe = x => (x === null || x === undefined ? Nothing : Just(x));
 
-const Maybe = Just
+Maybe.of = Maybe;
 
 module.exports = { Maybe, Nothing, Just };

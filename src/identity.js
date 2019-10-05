@@ -1,12 +1,13 @@
-const fantasylandWrapper = require('./fantasyland-wrapper');
+const Identity = x => ({
+  map: f => Identity(f(x)),
+  chain: f => f(x),
+  ap: mf => mf.map(f => f(x)),
+  fold: f => f(x),
+  constructor: Identity,
+  valueOf: () => x,
+  toString: () => `Identity <${String(x)}>`
+});
 
-const Identity = fantasylandWrapper((x) => ({
-    map: f => Identity(f(x)),
-    chain: f => f(x),
-    ap: mf => mf.map(f => f(x)),
-    fold: f => f(x),
-    equals: mb => x === mb.valueOf(),
-    valueOf: () => x,
-    toString: () => `Identity <${x}>`
-}));
-module.exports = Identity;
+Identity.of = Identity;
+
+module.exports = { Identity };
