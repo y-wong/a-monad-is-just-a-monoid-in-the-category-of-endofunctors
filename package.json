@@ -1,0 +1,27 @@
+{
+  "name": "monads",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha src -w"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/chai": "^4.2.1",
+    "@types/mocha": "^5.2.7",
+    "@types/ramda": "^0.26.21",
+    "chai": "^4.2.0",
+    "d": "^1.0.1",
+    "fantasy-check": "^0.3.2",
+    "fantasy-eithers": "0.0.2",
+    "fantasy-laws": "^1.2.0",
+    "fluture": "^11.0.3",
+    "jsverify": "^0.8.4",
+    "mocha": "^6.2.0",
+    "ramda": "^0.26.1",
+    "sanctuary-show": "^1.0.0",
+    "sanctuary-type-classes": "^11.0.0"
+  }
+}
