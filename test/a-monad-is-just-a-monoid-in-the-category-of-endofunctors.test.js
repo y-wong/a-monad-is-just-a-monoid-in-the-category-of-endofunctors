@@ -11,7 +11,7 @@ const test = (description, M) => {
   const H = Monoid(x => M(x / 4));
   const x = 2;
 
-  describe(`${description} Monad is just a Monoid in the category of Endofunctors, what's the problem?`, () => {
+  describe(description, () => {
     it('follows identity laws', () => {
       equals(
         Monoid.empty.concat(F).valueOf()(x),
@@ -26,7 +26,8 @@ const test = (description, M) => {
     });
   });
 };
-
-test('Identity', Identity);
-test('Maybe', Maybe);
-test('Either', Either);
+describe(`A Monad is just a Monoid in the category of Endofunctors, what's the problem?`, () => {
+  test('Identity', Identity);
+  test('Maybe', Maybe);
+  test('Either', Either);
+});
