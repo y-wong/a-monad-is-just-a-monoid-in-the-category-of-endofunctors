@@ -6,6 +6,7 @@ module.exports = M => {
   const f = x => x + 1;
   const v = M(x);
   const u = M(f);
+  
   describe('Applicative laws', () => {
     it('follows identity law', () => {
       equals(

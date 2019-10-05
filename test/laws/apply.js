@@ -7,6 +7,7 @@ module.exports = M => {
   const v = M(x);
   const u = M(f);
   const a = M(g);
+  
   describe('Apply laws', () => {
     it('follows composition law', () => {
       equals(
