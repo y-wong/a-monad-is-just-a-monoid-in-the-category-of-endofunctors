@@ -7,10 +7,8 @@ const map = curry((f, xs) => xs.map(f));
 const chain = curry((f, xs) => xs.flatMap(f));
 const unit = x => Array.of(x);
 
-
 describe(`A Monad is just a Monoid in the category of Endofunctors, what's the problem?`, () => {
   describe('Array', () => {
-
     describe('is a functor', () => {
       it('follows identity law', () => {
         const m = unit(3);
