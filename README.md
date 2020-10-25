@@ -1,6 +1,6 @@
 # A monad is just a monoid in the category of endofunctors, what's the problem?
 
-This repository contains test cases that proves Array is a functor, a monad, and is just a monoid in the category of endofunctors
+This repository contains test cases that prove Array is a functor, a monad, and is just a monoid in the category of endofunctors
 
 ## Test
 
